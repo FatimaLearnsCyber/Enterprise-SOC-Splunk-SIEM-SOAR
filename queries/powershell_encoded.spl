@@ -1,0 +1,11 @@
+# Detection: Suspicious PowerShell EncodedCommand
+# Description: Detects use of PowerShell with -EncodedCommand flag, 
+#              often used by attackers to obfuscate malicious scripts.
+# MITRE ATT&CK: T1059.001 – Command & Scripting Interpreter: PowerShell
+
+
+index=sysmon (sourcetype=WinEventLog:Security OR sourcetype=XmlWinEventLog:Security) 
+(EventCode=4688 OR EventCode=1) 
+New_Process_Name="*powershell.exe" 
+CommandLine="EncodedCommand"
+| table _time, ComputerName, New_Process_Name, CommandLine, Parent_Process_Name, Account_Name
