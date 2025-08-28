@@ -1,0 +1,12 @@
+# Detection: Suspicious Rundll32 Execution
+# Description: Detects rundll32.exe executing with suspicious parameters such as 
+#              shell32.dll, mshtml.dll, javascript, or arbitrary DLL loads. 
+#              Technique often abused for LOLBAS and proxy execution.
+# MITRE ATT&CK: T1218.011 – Signed Binary Proxy Execution: Rundll32
+
+index=sysmon (sourcetype=WinEventLog:Security OR sourcetype=XmlWinEventLog:Security)
+(EventCode=4688 OR EventCode=1) 
+New_Process_Name="*rundll32.exe"
+| eval suspicious=if(like(CommandLine,"%javascript%") OR like(CommandLine,"%mshtml%") OR like(CommandLine,"%shell32.dll%") OR like(CommandLine,"%.dll%"), "yes","no")
+| search suspicious="yes"
+| table _time, ComputerName, New_Process_Name, CommandLine, Parent_Process_Name, Account_Name
