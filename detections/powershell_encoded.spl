@@ -3,5 +3,3 @@ EventCode=1
 New_Process_Name="*powershell.exe" 
 CommandLine="*EncodedCommand*"
 | table _time, ComputerName, New_Process_Name, CommandLine, Parent_Process_Name, Account_Name
-
-Detection for suspicious PowerShell execution with -EncodedCommand (MITRE ATT&CK T1059.001 – Command & Scripting Interpreter: PowerShell).
