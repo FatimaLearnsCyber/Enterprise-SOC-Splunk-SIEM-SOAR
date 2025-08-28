@@ -61,7 +61,7 @@ This project demonstrates:
 
 ---
 
-## 🔗 Connect
+##  Connect
 
 If you found this useful or want to collaborate:  
 https://www.linkedin.com/in/fatimamuhammad/  
