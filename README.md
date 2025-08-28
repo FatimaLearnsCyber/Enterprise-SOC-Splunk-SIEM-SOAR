@@ -39,14 +39,18 @@ Designed to highlight **threat detection engineering, MITRE ATT&CK mapping, and 
 
 ---
 
-##  Documentation
+## Documentation
 
-Screenshots & step-by-step guides are stored in `docs/`  
-Example:  
-- Splunk installation setup  
-- Sysmon configuration  
-- Detection queries  
-- Triggered alerts & email notifications  
+This folder contains project documentation, including **architecture diagrams** and **screenshots** that showcase key stages of the SOC project.
+
+ **Screenshots are available here:**  
+[docs/screenshots](./screenshots)
+
+Contents include:  
+- Splunk interface  
+- Detection queries (PowerShell, rundll32, etc.)  
+- Alerting & email test  
+- Dashboards & SOAR automation 
 
 ---
 
