@@ -1,0 +1,5 @@
+# Detection query for suspicious scheduled task creation or modification.
+# MITRE ATT&CK Technique: T1053.005 (Scheduled Task/Job: Scheduled Task).
+
+index=sysmon (Image="*\\schtasks.exe" OR ParentImage="*\\schtasks.exe")
+| table _time, ComputerName, User, ParentImage, CommandLine
