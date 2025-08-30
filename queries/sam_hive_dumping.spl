@@ -1,0 +1,6 @@
+# Detection query for suspicious SAM hive dumping.
+# MITRE ATT&CK Technique: T1003.002 (OS Credential Dumping: Security Account Manager).
+
+
+index=sysmon EventCode=11 TargetFilename="*\\sam.save" OR TargetFilename="*\\System32\\config\\SAM"
+| table _time, ComputerName, User, Image, TargetFilename
