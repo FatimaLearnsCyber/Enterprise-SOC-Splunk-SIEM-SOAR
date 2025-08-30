@@ -1,4 +1,4 @@
-# Detection query for suspicious DNS queries.
+# Detection query for suspicious DNS queries from uncommon processes.
 # MITRE ATT&CK Technique: T1071.004 (Application Layer Protocol: DNS).
 
 index=sysmon EventCode=22 
