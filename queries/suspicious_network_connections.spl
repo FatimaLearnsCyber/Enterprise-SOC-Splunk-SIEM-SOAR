@@ -1,0 +1,6 @@
+# Detection query for suspicious outbound network connections from LOLBins.
+# MITRE ATT&CK Technique: T1071 (Application Layer Protocol).
+
+index=sysmon EventCode=3 
+(Image="*powershell.exe" OR Image="*mshta.exe" OR Image="*rundll32.exe" OR Image="*certutil.exe" OR Image="*bitsadmin.exe")
+| table _time, ComputerName, User, Image, DestinationIp, DestinationPort, CommandLine
