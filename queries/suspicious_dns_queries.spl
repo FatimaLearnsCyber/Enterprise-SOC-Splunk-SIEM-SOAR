@@ -1,0 +1,6 @@
+# Detection query for suspicious DNS queries.
+# MITRE ATT&CK Technique: T1071.004 (Application Layer Protocol: DNS).
+
+index=sysmon EventCode=22 
+NOT (Image="*\\svchost.exe" OR Image="*\\chrome.exe" OR Image="*\\msedge.exe")
+| table _time, ComputerName, User, Image, QueryName
